@@ -1,0 +1,107 @@
+import re
+from mitmproxy import http
+import os
+import hashlib
+from pymisp import PyMISP
+import socket
+import subprocess
+
+SAVE_PATH = "/home/hau/Downloads/"
+OUTPUT_PATH = "/home/hau/Downloads/test/"
+
+def unzip_file(filepath):
+	#if len(os.listdir(OUTPUT_PATH)) > 0:
+		#command = f"rm -f {OUTPUT_PATH}*"
+		#subprocess.run(command, text=True)
+	password="infected"
+	command = ["7z", "x", f"-p{password}", filepath, f"-o{OUTPUT_PATH}"]
+	subprocess.run(command, check=True)
+	item = os.listdir(OUTPUT_PATH)
+	return item[0]
+    		
+def check_misp(filepath,hashval):
+	misp_url = "https://10.81.36.10"
+	misp_key = "d2QibEN2ImxQaryV52o7RREwPs55VgSoJyf9duAS"
+	misp_verifycert = False
+	
+	misp = PyMISP(misp_url, misp_key, misp_verifycert)
+	search_result_1 = misp.search("attributes", type_attribute="filename|sha256", value=hashval)
+	search_result_2 = misp.search("attributes", type_attribute="sha256", value=hashval)
+	
+	if len(search_result_1['Attribute']) > 0 or len(search_result_2['Attribute']) > 0:
+		return True
+	else:
+		return False
+
+
+def connect_and_send(host, port, message):
+	result = ""
+	try:
+		with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+			s.connect((host, port))
+			s.sendall(message.encode())
+			
+			while True:
+				response = s.recv(1024)
+				if not response:
+					break
+				result = response.decode().strip()
+				return result
+		s.close()
+	except Exception as e:
+		print(f"Connection error: {e}")
+ 
+def check_misp(filepath,hashval):
+	misp_url = "https://10.81.36.10"
+	misp_key = "d2QibEN2ImxQaryV52o7RREwPs55VgSoJyf9duAS"
+	misp_verifycert = False
+	
+	misp = PyMISP(misp_url, misp_key, misp_verifycert)
+	search_result_1 = misp.search("attributes", type_attribute="filename|sha256", value=hashval)
+	search_result_2 = misp.search("attributes", type_attribute="sha256", value=hashval)
+	
+	if len(search_result_1['Attribute']) > 0 or len(search_result_2['Attribute']) > 0:
+		return True
+	else:
+		return False
+
+def response(flow: http.HTTPFlow):
+	hash_sha256 = getattr(hashlib, "sha256")()
+	target_host = "10.81.36.30"
+	target_port = 9999
+	content_disp = flow.response.headers.get("Content-Disposition", "")
+	filename=""
+	match = re.search(r'filename="?([a-zA-Z0-9\.]+)"?', content_disp)
+	if match:
+		filename = match.group(1)
+		filepath = os.path.join(SAVE_PATH, filename)
+		with open(filepath, "wb") as f:
+			f.write(flow.response.content)
+		
+		if ".zip" in filepath:
+			filename = unzip_file(filepath)
+			#command = f"rm -f {filepath}*"
+			#subprocess.run(command, text=True)
+			filepath = os.path.join(OUTPUT_PATH,filename)
+			
+		with open(filepath, "rb") as f:
+			while chunk := f.read(4096):
+				hash_sha256.update(chunk)
+				
+		hash_sha256 = str(hash_sha256.hexdigest())
+		check = check_misp(filepath,hash_sha256)
+		if check == True:
+			flow.response = http.Response.make(
+            			403,
+            			"BLOCKED",
+            			{"Content-Type": "text/plain"}
+        		)
+		else:
+			result = connect_and_send(target_host,target_port,filename)
+			if ("Clean" not in result) or ("Warning" not in result):
+				flow.response = http.Response.make(
+            				403,
+            				result,
+            				{"Content-Type": "text/plain"}
+        			)
+				
