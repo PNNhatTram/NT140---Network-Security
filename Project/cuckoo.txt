@@ -1,0 +1,75 @@
+import socket
+import subprocess
+import time
+import json
+
+HOST = "10.81.36.30"  
+PORT = 9999
+
+def analyze_report(file_path):
+	with open(file_path, 'r') as f:
+		data = json.load(f)
+	dt = data['signatures']
+	list_describ = []
+	list_level = []
+	for item in dt:
+		if item['severity'] > 1:
+			list_level.append(item['severity'])
+			list_describ.append(item['description'])
+	if len(list_level) == 0:
+		return "Clean"
+	list_level.sort()
+	if list_level[-1] > 2 or list_level.count(2) > 2:
+		result = ",".join(list_describ)
+		return result
+	else:
+		return "Warning"
+		
+		
+			
+def start_server():
+	report_id = 31
+	with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as server_socket:
+		server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1) 
+		server_socket.bind((HOST, PORT))
+		server_socket.listen(5)
+
+		print(f"[*] Server dang lang nghe tren {HOST}:{PORT}...")
+
+		while True:
+			conn, addr = server_socket.accept()
+			print(f"[*] Ket noi tu: {addr}")
+
+			with conn:
+				while True:
+					data = conn.recv(1024)
+					if not data:
+						break
+					filename=data.decode().strip()
+					filepath= "http://10.81.36.10:8000/" + filename
+					output = "/home/cuckoo/Downloads/" + filename
+					reportpath = f"/home/cuckoo/reports/report_{report_id}.json"
+					command_1 = ["wget", filepath, "-O", output]
+					command_2 = f"cuckoo submit {output}"
+					command_3 = f'curl -H "Authorization: Bearer jqPUF9GvgneYP71pWh6MNA" http://localhost:8090/tasks/report/{report_id} > {reportpath}'
+					subprocess.run(command_1, check=True)
+					subprocess.run(command_2, shell=True)
+					while True:
+						string_to_find = f"task #{report_id}: analysis procedure completed"
+						with open("/home/cuckoo/.cuckoo/log/cuckoo.log","r") as f:
+							log_content = f.read()
+						log_content = log_content.lower()
+						if string_to_find in log_content:
+							subprocess.run(command_3, shell=True)
+							result = analyze_report(reportpath)
+							conn.sendall(result.encode())
+							report_id += 1
+							break
+						else:
+							time.sleep(5)
+				#conn.sendall("Ciao".encode())
+				
+                   
+
+if __name__ == "__main__":
+    start_server()
