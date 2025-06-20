@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remediation Report</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        h1, h2 {
+            color: #333;
+            text-align: center;
+        }
+        .report-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .finding {
+            margin-bottom: 10px;
+            padding: 10px;
+            border-left: 4px solid #d9534f;
+            background-color: #fff5f5;
+        }
+        .finding p {
+            margin: 5px 0;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="report-container">
+        <h1>Remediation Report</h1>
+        <div class="section">
+            <div class="finding">
+                <p><strong>Name:</strong> TeslaCrypt</p>
+                <p><strong>Type:</strong> ransomware</p>
+                <p><strong>Hash:</strong> sha256:7004af389d633b82c3ee67055ecb0f9accae5dc0a53721da66c76825ece528f8</p>
+                <p><strong>Behavior:</strong> encrypts files, communicates with C2, persistence mechanisms</p>
+            </div>
+        </div>
+        <div class="section">
+            <h2>Malware Remediation</h2>
+            <div class="finding">
+                <p><strong>Finding:</strong> C:\Program Files\WindowsPowerShell\Modules\Pester\3.4.0\Examples\Validator\help_recover_instructions+okn.txt</p>
+                <p><strong>Action:</strong> Delete file</p>
+            </div>
+            <div class="finding">
+                <p><strong>Finding:</strong> C:\Program Files\Windows Portable Devices\help_recover_instructions+okn.txt</p>
+                <p><strong>Action:</strong> Delete file</p>
+            </div>
+            <div class="finding">
+                <p><strong>Finding:</strong> C:\Program Files\Google\Chrome\Application\132.0.6834.111\WidevineCdm\help_recover_instructions+okn.html</p>
+                <p><strong>Action:</strong> Delete file</p>
+            </div>
+            <div class="finding">
+                <p><strong>Finding:</strong> HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\AutoDetect</p>
+                <p><strong>Action:</strong> Delete registry key</p>
+            </div>
+            <div class="finding">
+                <p><strong>Finding:</strong> HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\ProxyBypass</p>
+                <p><strong>Action:</strong> Delete registry key</p>
+            </div>
+            <div class="finding">
+                <p><strong>Finding:</strong> HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\EnableLinkedConnections</p>
+                <p><strong>Action:</strong> Delete registry key</p>
+            </div>
+            <div class="finding">
+                <p><strong>Finding:</strong> 176.74.179.58</p>
+                <p><strong>Action:</strong> Block IP</p>
+            </div>
+            <div class="finding">
+                <p><strong>Finding:</strong> 104.247.82.54</p>
+                <p><strong>Action:</strong> Block IP</p>
+            </div>
+            <div class="finding">
+                <p><strong>Finding:</strong> 3.33.130.190</p>
+                <p><strong>Action:</strong> Block IP</p>
+            </div>
+            <div class="finding">
+                <p><strong>Finding:</strong> educarpetas.com</p>
+                <p><strong>Action:</strong> Block domain</p>
+            </div>
+            <div class="finding">
+                <p><strong>Finding:</strong> grant-pro.com</p>
+                <p><strong>Action:</strong> Block domain</p>
+            </div>
+            <div class="finding">
+                <p><strong>Finding:</strong> Isolate infected system</p>
+                <p><strong>Action:</strong> Disconnect the system from the network immediately</p>
+            </div>
+            <div class="finding">
+                <p><strong>Finding:</strong> Check for TeslaCrypt decryption tools</p>
+                <p><strong>Action:</strong> Consult trusted cybersecurity resources for decryption tools</p>
+            </div>
+        </div>
+        <div class="section">
+            <h2>Vulnerability Remediation</h2>
+            <div class="finding">
+                <p><strong>CVE:</strong> CVE-2020-1574</p>
+                <p><strong>Finding:</strong> Microsoft Windows WebP Image Extension RCE</p>
+                <p><strong>Action:</strong> Upgrade to app version 1.0.31251.0 or later via the Microsoft Store</p>
+            </div>
+            <div class="finding">
+                <p><strong>CVE:</strong> CVE-2020-16918</p>
+                <p><strong>Finding:</strong> Microsoft 3D Viewer Base3D Code Execution</p>
+                <p><strong>Action:</strong> Upgrade to app version 7.2009.29132.0 or later via the Microsoft Store</p>
+            </div>
+            <div class="finding">
+                <p><strong>CVE:</strong> CVE-2020-17003</p>
+                <p><strong>Finding:</strong> Microsoft 3D Viewer Base3D Code Execution</p>
+                <p><strong>Action:</strong> Upgrade to app version 7.2009.29132.0 or later via the Microsoft Store</p>
+            </div>
+            <div class="finding">
+                <p><strong>CVE:</strong> CVE-2021-28464</p>
+                <p><strong>Finding:</strong> Microsoft Windows VP9 Video Extensions Library RCE</p>
+                <p><strong>Action:</strong> Upgrade to app version 1.0.40631.0 or later via the Microsoft Store</p>
+            </div>
+            <div class="finding">
+                <p><strong>CVE:</strong> CVE-2021-28465</p>
+                <p><strong>Finding:</strong> Microsoft Windows Web Media Extensions Library RCE</p>
+                <p><strong>Action:</strong> Upgrade to app version 1.0.40831.0 or later via the Microsoft Store</p>
+            </div>
+            <div class="finding">
+                <p><strong>CVE:</strong> CVE-2021-31943</p>
+                <p><strong>Finding:</strong> Microsoft 3D Viewer is outdated (version 6.1908.2042.0).</p>
+                <p><strong>Action:</strong> Upgrade to app version 7.2105.4012.0 or later via the Microsoft Store.</p>
+            </div>
+            <div class="finding">
+                <p><strong>CVE:</strong> CVE-2021-31944</p>
+                <p><strong>Finding:</strong> Microsoft 3D Viewer is outdated (version 6.1908.2042.0).</p>
+                <p><strong>Action:</strong> Upgrade to app version 7.2105.4012.0 or later via the Microsoft Store.</p>
+            </div>
+            <div class="finding">
+                <p><strong>CVE:</strong> CVE-2021-31945</p>
+                <p><strong>Finding:</strong> Microsoft 3D Viewer is outdated (version 6.1908.2042.0).</p>
+                <p><strong>Action:</strong> Upgrade to app version 7.2105.4012.0 or later via the Microsoft Store.</p>
+            </div>
+            <div class="finding">
+                <p><strong>CVE:</strong> CVE-2021-31946</p>
+                <p><strong>Finding:</strong> Microsoft Paint 3D is outdated (version 6.1907.29027.0).</p>
+                <p><strong>Action:</strong> Upgrade to app version 6.2105.4017.0 or later via the Microsoft Store.</p>
+            </div>
+            <div class="finding">
+                <p><strong>CVE:</strong> CVE-2021-31967</p>
+                <p><strong>Finding:</strong> Microsoft Windows VP9 Video Extensions Library is outdated (version 1.0.22681.0).</p>
+                <p><strong>Action:</strong> Upgrade to app version 1.0.41182.0 or later via the Microsoft Store.</p>
+            </div>
+            <div class="finding">
+                <p><strong>CVE:</strong> CVE-2021-43208</p>
+                <p><strong>Finding:</strong> Microsoft 3D Viewer is outdated (version 6.1908.2042.0).</p>
+                <p><strong>Action:</strong> Upgrade to app version 7.2107.7012.0 or later via the Microsoft Store.</p>
+            </div>
+            <div class="finding">
+                <p><strong>CVE:</strong> CVE-2021-43209</p>
+                <p><strong>Finding:</strong> Microsoft 3D Viewer is outdated (version 6.1908.2042.0).</p>
+                <p><strong>Action:</strong> Upgrade to app version 7.2107.7012.0 or later via the Microsoft Store.</p>
+            </div>
+            <div class="finding">
+                <p><strong>CVE:</strong> CVE-2021-43243</p>
+                <p><strong>Finding:</strong> Microsoft Windows VP9 Video Extensions Library is outdated (version 1.0.22681.0).</p>
+                <p><strong>Action:</strong> Upgrade to app version 1.0.42791.0 or later via the Microsoft Store.</p>
+            </div>
+            <div class="finding">
+                <p><strong>CVE:</strong> CVE-2021-43905</p>
+                <p><strong>Finding:</strong> Microsoft 365 (Office) App is outdated (version 18.1903.1152.0).</p>
+                <p><strong>Action:</strong> Upgrade to app version 18.2110.13110.0 or later via the Microsoft Store.</p>
+            </div>
+            <div class="finding">
+                <p><strong>CVE:</strong> CVE-2022-22709</p>
+                <p><strong>Finding:</strong> Microsoft Windows VP9 Video Extensions Library is outdated (version 1.0.22681.0).</p>
+                <p><strong>Action:</strong> Upgrade to app version 1.0.42791.0 or later via the Microsoft Store.</p>
+            </div>
+            <div class="finding">
+                <p><strong>CVE:</strong> CVE-2022-23282</p>
+                <p><strong>Finding:</strong> Microsoft Paint 3D is outdated (version 6.1907.29027.0).</p>
+                <p><strong>Action:</strong> Upgrade to app version 6.2105.4017.0 or later via the Microsoft Store.</p>
+            </div>
+            <div class="finding">
+                <p><strong>CVE:</strong> CVE-2022-24501</p>
+                <p><strong>Finding:</strong> Microsoft Windows VP9 Video Extensions Library is outdated (version 1.0.22681.0).</p>
+                <p><strong>Action:</strong> Upgrade to app version 1.0.42791.0 or later via the Microsoft Store.</p>
+            </div>
+            <div class="finding">
+                <p><strong>CVE:</strong> CVE-2022-41303</p>
+                <p><strong>Finding:</strong> Microsoft 3D Viewer app is outdated (version 6.1908.2042.0).</p>
+                <p><strong>Action:</strong> Update to the latest Microsoft 3D Viewer app via the Microsoft Store.</p>
+            </div>
+            <div class="finding">
+                <p><strong>CVE:</strong> CVE-2023-28303</p>
+                <p><strong>Finding:</strong> Windows Snip &amp; Sketch/ Snipping Tool is outdated (version 10.1907.2471.0).</p>
+                <p><strong>Action:</strong> Upgrade to Snip &amp; Sketch 10.2008.3001.0 for Windows 10, Snipping Tool 11.2302.20.0 for Windows 11, or later.</p>
+            </div>
+            <div class="finding">
+                <p><strong>CVE:</strong> CVE-2023-32047</p>
+                <p><strong>Finding:</strong> Microsoft Paint 3D is outdated (version 6.1907.29027.0).</p>
+                <p><strong>Action:</strong> Upgrade to app version 6.2305.16087.0 or later via the Microsoft Store.</p>
+            </div>
+            <div class="finding">
+                <p><strong>CVE:</strong> CVE-2023-33140</p>
+                <p><strong>Finding:</strong> Microsoft OneNote is outdated (version 16001.12026.20112.0).</p>
+                <p><strong>Action:</strong> Upgrade to app version 16.0.14326.21450 or later via the Microsoft Store.</p>
+            </div>
+            <div class="finding">
+                <p><strong>CVE:</strong> CVE-2023-35374</p>
+                <p><strong>Finding:</strong> Microsoft Paint 3D is outdated (version 6.1907.29027.0).</p>
+                <p><strong>Action:</strong> Upgrade to app version 6.2305.16087.0 or later via the Microsoft Store.</p>
+            </div>
+            <div class="finding">
+                <p><strong>CVE:</strong> CVE-2023-36739</p>
+                <p><strong>Finding:</strong> Microsoft 3D Viewer app is outdated (version 6.1908.2042.0).</p>
+                <p><strong>Action:</strong> Update to the latest Microsoft 3D Viewer app via the Microsoft Store.</p>
+            </div>
+            <div class="finding">
+                <p><strong>CVE:</strong> CVE-2023-36740</p>
+                <p><strong>Finding:</strong> Microsoft 3D Viewer app is outdated (version 6.1908.2042.0).</p>
+                <p><strong>Action:</strong> Update to the latest Microsoft 3D Viewer app via the Microsoft Store.</p>
+            </div>
+            <div class="finding">
+                <p><strong>CVE:</strong> CVE-2023-36760</p>
+                <p><strong>Finding:</strong> Microsoft 3D Viewer app is outdated (version 6.1908.2042.0).</p>
+                <p><strong>Action:</strong> Update to the latest Microsoft 3D Viewer app via the Microsoft Store.</p>
+            </div>
+            <div class="finding">
+                <p><strong>CVE:</strong> CVE-2023-36872</p>
+                <p><strong>Finding:</strong> Microsoft Windows VP9 Video Extensions Library is outdated (version 1.0.22681.0).</p>
+                <p><strong>Action:</strong> Upgrade to app version 1.0.61591.0 or later via the Microsoft Store.</p>
+            </div>
+            <div class="finding">
+                <p><strong>CVE:</strong> CVE-2025-0444</p>
+                <p><strong>Finding:</strong> Microsoft Edge (Chromium) is outdated (version 132.0.2957.127).</p>
+                <p><strong>Action:</strong> Upgrade to Microsoft Edge version 133.0.3065.51 or later.</p>
+            </div>
+            <div class="finding">
+                <p><strong>CVE:</strong> CVE-2025-0445</p>
+                <p><strong>Finding:</strong> Microsoft Edge (Chromium) is outdated (version 132.0.2957.127).</p>
+                <p><strong>Action:</strong> Upgrade to Microsoft Edge version 133.0.3065.51 or later.</p>
+            </div>
+            <div class="finding">
+                <p><strong>CVE:</strong> CVE-2025-0451</p>
+                <p><strong>Finding:</strong> Microsoft Edge (Chromium) &lt; 133.0.3065.51 Multiple Vulnerabilities</p>
+                <p><strong>Action:</strong> Upgrade to Microsoft Edge version 133.0.3065.51 or later.</p>
+            </div>
+            <div class="finding">
+                <p><strong>CVE:</strong> CVE-2025-0762</p>
+                <p><strong>Finding:</strong> Microsoft Edge (Chromium) &lt; 132.0.2957.140 (CVE-2025-0762)</p>
+                <p><strong>Action:</strong> Upgrade to Microsoft Edge version 132.0.2957.140 or later.</p>
+            </div>
+            <div class="finding">
+                <p><strong>CVE:</strong> CVE-2025-0995</p>
+                <p><strong>Finding:</strong> Microsoft Edge (Chromium) &lt; 133.0.3065.69 Multiple Vulnerabilities</p>
+                <p><strong>Action:</strong> Upgrade to Microsoft Edge version 133.0.3065.69 or later.</p>
+            </div>
+            <div class="finding">
+                <p><strong>CVE:</strong> CVE-2025-0996</p>
+                <p><strong>Finding:</strong> Microsoft Edge (Chromium) &lt; 133.0.3065.69 Multiple Vulnerabilities</p>
+                <p><strong>Action:</strong> Upgrade to Microsoft Edge version 133.0.3065.69 or later.</p>
+            </div>
+            <div class="finding">
+                <p><strong>CVE:</strong> CVE-2025-0997</p>
+                <p><strong>Finding:</strong> Microsoft Edge (Chromium) &lt; 133.0.3065.69 Multiple Vulnerabilities</p>
+                <p><strong>Action:</strong> Upgrade to Microsoft Edge version 133.0.3065.69 or later.</p>
+            </div>
+            <div class="finding">
+                <p><strong>CVE:</strong> CVE-2025-0998</p>
+                <p><strong>Finding:</strong> Microsoft Edge (Chromium) &lt; 133.0.3065.69 Multiple Vulnerabilities</p>
+                <p><strong>Action:</strong> Upgrade to Microsoft Edge version 133.0.3065.69 or later.</p>
+            </div>
+            <div class="finding">
+                <p><strong>CVE:</strong> CVE-2025-0999</p>
+                <p><strong>Finding:</strong> Microsoft Edge (Chromium) &lt; 133.0.3065.82 Multiple Vulnerabilities</p>
+                <p><strong>Action:</strong> Upgrade to Microsoft Edge version 133.0.3065.82 or later.</p>
+            </div>
+            <div class="finding">
+                <p><strong>CVE:</strong> CVE-2025-1006</p>
+                <p><strong>Finding:</strong> Microsoft Edge (Chromium) &lt; 133.0.3065.82 Multiple Vulnerabilities</p>
+                <p><strong>Action:</strong> Upgrade to Microsoft Edge version 133.0.3065.82 or later.</p>
+            </div>
+            <div class="finding">
+                <p><strong>CVE:</strong> CVE-2025-1426</p>
+                <p><strong>Finding:</strong> Microsoft Edge (Chromium) &lt; 133.0.3065.82 Multiple Vulnerabilities</p>
+                <p><strong>Action:</strong> Upgrade to Microsoft Edge version 133.0.3065.82 or later.</p>
+            </div>
+            <div class="finding">
+                <p><strong>CVE:</strong> CVE-2025-1914</p>
+                <p><strong>Finding:</strong> Microsoft Edge (Chromium) &lt; 134.0.3124.51 Multiple Vulnerabilities</p>
+                <p><strong>Action:</strong> Upgrade to Microsoft Edge version 134.0.3124.51 or later.</p>
+            </div>
+            <div class="finding">
+                <p><strong>CVE:</strong> CVE-2025-1915</p>
+                <p><strong>Finding:</strong> Microsoft Edge (Chromium) &lt; 134.0.3124.51 Multiple Vulnerabilities</p>
+                <p><strong>Action:</strong> Upgrade to Microsoft Edge version 134.0.3124.51 or later.</p>
+            </div>
+            <div class="finding">
+                <p><strong>CVE:</strong> CVE-2025-1916</p>
+                <p><strong>Finding:</strong> Microsoft Edge (Chromium) &lt; 134.0.3124.51 Multiple Vulnerabilities</p>
+                <p><strong>Action:</strong> Upgrade to Microsoft Edge version 134.0.3124.51 or later.</p>
+            </div>
+            <div class="finding">
+                <p><strong>CVE:</strong> CVE-2025-1917</p>
+                <p><strong>Finding:</strong> Microsoft Edge (Chromium) &lt; 134.0.3124.51 Multiple Vulnerabilities</p>
+                <p><strong>Action:</strong> Upgrade to Microsoft Edge version 134.0.3124.51 or later.</p>
+            </div>
+            <div class="finding">
+                <p><strong>CVE:</strong> CVE-2025-1918</p>
+                <p><strong>Finding:</strong> Microsoft Edge (Chromium) &lt; 134.0.3124.51 Multiple Vulnerabilities</p>
+                <p><strong>Action:</strong> Upgrade to Microsoft Edge version 134.0.3124.51 or later.</p>
+            </div>
+            <div class="finding">
+                <p><strong>CVE:</strong> CVE-2025-1919</p>
+                <p><strong>Finding:</strong> Microsoft Edge (Chromium) &lt; 134.0.3124.51 Multiple Vulnerabilities</p>
+                <p><strong>Action:</strong> Upgrade to Microsoft Edge version 134.0.3124.51 or later.</p>
+            </div>
+            <div class="finding">
+                <p><strong>CVE:</strong> CVE-2025-1921</p>
+                <p><strong>Finding:</strong> Microsoft Edge (Chromium) &lt; 134.0.3124.51 Multiple Vulnerabilities</p>
+                <p><strong>Action:</strong> Upgrade to Microsoft Edge version 134.0.3124.51 or later.</p>
+            </div>
+            <div class="finding">
+                <p><strong>CVE:</strong> CVE-2025-1922</p>
+                <p><strong>Finding:</strong> Microsoft Edge (Chromium) &lt; 134.0.3124.51 Multiple Vulnerabilities</p>
+                <p><strong>Action:</strong> Upgrade to Microsoft Edge version 134.0.3124.51 or later.</p>
+            </div>
+            <div class="finding">
+                <p><strong>CVE:</strong> CVE-2025-1923</p>
+                <p><strong>Finding:</strong> Microsoft Edge (Chromium) &lt; 134.0.3124.51 Multiple Vulnerabilities</p>
+                <p><strong>Action:</strong> Upgrade to Microsoft Edge version 134.0.3124.51 or later.</p>
+            </div>
+            <div class="finding">
+                <p><strong>CVE:</strong> CVE-2025-21267</p>
+                <p><strong>Finding:</strong> Microsoft Edge (Chromium) &lt; 133.0.3065.51 Multiple Vulnerabilities</p>
+                <p><strong>Action:</strong> Upgrade to Microsoft Edge version 133.0.3065.51 or later.</p>
+            </div>
+            <div class="finding">
+                <p><strong>CVE:</strong> CVE-2025-21279</p>
+                <p><strong>Finding:</strong> Microsoft Edge (Chromium) &lt; 133.0.3065.51 Multiple Vulnerabilities</p>
+                <p><strong>Action:</strong> Upgrade to Microsoft Edge version 133.0.3065.51 or later.</p>
+            </div>
+            <div class="finding">
+                <p><strong>CVE:</strong> CVE-2025-21283</p>
+                <p><strong>Finding:</strong> Microsoft Edge (Chromium) &lt; 133.0.3065.51 Multiple Vulnerabilities</p>
+                <p><strong>Action:</strong> Upgrade to Microsoft Edge version 133.0.3065.51 or later.</p>
+            </div>
+            <div class="finding">
+                <p><strong>CVE:</strong> CVE-2025-21342</p>
+                <p><strong>Finding:</strong> Microsoft Edge (Chromium) &lt; 133.0.3065.51 Multiple Vulnerabilities</p>
+                <p><strong>Action:</strong> Upgrade to Microsoft Edge version 133.0.3065.51 or later.</p>
+            </div>
+            <div class="finding">
+                <p><strong>CVE:</strong> CVE-2025-2135</p>
+                <p><strong>Finding:</strong> Microsoft Edge (Chromium) &lt; 134.0.3124.66 Multiple Vulnerabilities</p>
+                <p><strong>Action:</strong> Upgrade to Microsoft Edge version 134.0.3124.66 or later.</p>
+            </div>
+            <div class="finding">
+                <p><strong>CVE:</strong> CVE-2025-2136</p>
+                <p><strong>Finding:</strong> Microsoft Edge (Chromium) &lt; 134.0.3124.66 Multiple Vulnerabilities</p>
+                <p><strong>Action:</strong> Upgrade to Microsoft Edge version 134.0.3124.66 or later.</p>
+            </div>
+            <div class="finding">
+                <p><strong>CVE:</strong> CVE-2025-2137</p>
+                <p><strong>Finding:</strong> Microsoft Edge (Chromium) &lt; 134.0.3124.66 Multiple Vulnerabilities</p>
+                <p><strong>Action:</strong> Upgrade to Microsoft Edge version 134.0.3124.66 or later.</p>
+            </div>
+            <div class="finding">
+                <p><strong>CVE:</strong> CVE-2025-21401</p>
+                <p><strong>Finding:</strong> Microsoft Edge (Chromium) &lt; 133.0.3065.69 Multiple Vulnerabilities</p>
+                <p><strong>Action:</strong> Upgrade to Microsoft Edge version 133.0.3065.69 or later.</p>
+            </div>
+            <div class="finding">
+                <p><strong>CVE:</strong> CVE-2025-21404</p>
+                <p><strong>Finding:</strong> Microsoft Edge (Chromium) &lt; 133.0.3065.51 Multiple Vulnerabilities</p>
+                <p><strong>Action:</strong> Upgrade to Microsoft Edge version 133.0.3065.51 or later.</p>
+            </div>
+            <div class="finding">
+                <p><strong>CVE:</strong> CVE-2025-21408</p>
+                <p><strong>Finding:</strong> Microsoft Edge (Chromium) &lt; 133.0.3065.51 Multiple Vulnerabilities</p>
+                <p><strong>Action:</strong> Upgrade to Microsoft Edge version 133.0.3065.51 or later.</p>
+            </div>
+            <div class="finding">
+                <p><strong>CVE:</strong> CVE-2025-24201</p>
+                <p><strong>Finding:</strong> Microsoft Edge (Chromium) &lt; 134.0.3124.66 Multiple Vulnerabilities</p>
+                <p><strong>Action:</strong> Upgrade to Microsoft Edge version 134.0.3124.66 or later.</p>
+            </div>
+            <div class="finding">
+                <p><strong>CVE:</strong> CVE-2025-25000</p>
+                <p><strong>Finding:</strong> Microsoft Edge (Chromium) &lt; 134.0.3124.83 Multiple Vulnerabilities</p>
+                <p><strong>Action:</strong> Upgrade to Microsoft Edge version 134.0.3124.83 or later.</p>
+            </div>
+            <div class="finding">
+                <p><strong>CVE:</strong> CVE-2025-25001</p>
+                <p><strong>Finding:</strong> Microsoft Edge (Chromium) &lt; 135.0.3179.54 Multiple Vulnerabilities</p>
+                <p><strong>Action:</strong> Upgrade to Microsoft Edge version 135.0.3179.54 or later.</p>
+            </div>
+            <div class="finding">
+                <p><strong>CVE:</strong> CVE-2025-26643</p>
+                <p><strong>Finding:</strong> Microsoft Edge (Chromium) &lt; 134.0.3124.51 Multiple Vulnerabilities</p>
+                <p><strong>Action:</strong> Upgrade to Microsoft Edge version 134.0.3124.51 or later.</p>
+            </div>
+            <div class="finding">
+                <p><strong>CVE:</strong> CVE-2025-2783</p>
+                <p><strong>Finding:</strong> Microsoft Edge (Chromium) &lt; 134.0.3124.93 (CVE-2025-2783)</p>
+                <p><strong>Action:</strong> Upgrade to Microsoft Edge version 134.0.3124.93 or later.</p>
+            </div>
+            <div class="finding">
+                <p><strong>CVE:</strong> CVE-2025-29795</p>
+                <p><strong>Finding:</strong> Microsoft Edge (Chromium) &lt; 134.0.3124.83 Multiple Vulnerabilities</p>
+                <p><strong>Action:</strong> Upgrade to Microsoft Edge version 134.0.3124.83 or later.</p>
+            </div>
+            <div class="finding">
+                <p><strong>CVE:</strong> CVE-2025-29815</p>
+                <p><strong>Finding:</strong> Microsoft Edge (Chromium) &lt; 135.0.3179.54 Multiple Vulnerabilities</p>
+                <p><strong>Action:</strong> Upgrade to Microsoft Edge version 135.0.3179.54 or later.</p>
+            </div>
+            <div class="finding">
+                <p><strong>CVE:</strong> CVE-2025-29834</p>
+                <p><strong>Finding:</strong> Microsoft Edge (Chromium) &lt; 135.0.3179.73 (CVE-2025-29834)</p>
+                <p><strong>Action:</strong> Upgrade to Microsoft Edge version 135.0.3179.73 or later.</p>
+            </div>
+            <div class="finding">
+                <p><strong>CVE:</strong> CVE-2025-3066</p>
+                <p><strong>Finding:</strong> Microsoft Edge (Chromium) &lt; 135.0.3179.54 Multiple Vulnerabilities</p>
+                <p><strong>Action:</strong> Upgrade to Microsoft Edge version 135.0.3179.54 or later.</p>
+            </div>
+            <div class="finding">
+                <p><strong>CVE:</strong> CVE-2025-3067</p>
+                <p><strong>Finding:</strong> Microsoft Edge (Chromium) &lt; 135.0.3179.54 Multiple Vulnerabilities</p>
+                <p><strong>Action:</strong> Upgrade to Microsoft Edge version 135.0.3179.54 or later.</p>
+            </div>
+            <div class="finding">
+                <p><strong>CVE:</strong> CVE-2025-3068</p>
+                <p><strong>Finding:</strong> Microsoft Edge (Chromium) &lt; 135.0.3179.54 Multiple Vulnerabilities</p>
+                <p><strong>Action:</strong> Upgrade to Microsoft Edge version 135.0.3179.54 or later.</p>
+            </div>
+            <div class="finding">
+                <p><strong>CVE:</strong> CVE-2025-3069</p>
+                <p><strong>Finding:</strong> Microsoft Edge (Chromium) &lt; 135.0.3179.54 Multiple Vulnerabilities</p>
+                <p><strong>Action:</strong> Upgrade to Microsoft Edge version 135.0.3179.54 or later.</p>
+            </div>
+            <div class="finding">
+                <p><strong>CVE:</strong> CVE-2025-3070</p>
+                <p><strong>Finding:</strong> Microsoft Edge (Chromium) &lt; 135.0.3179.54 Multiple Vulnerabilities</p>
+                <p><strong>Action:</strong> Upgrade to Microsoft Edge version 135.0.3179.54 or later.</p>
+            </div>
+            <div class="finding">
+                <p><strong>CVE:</strong> CVE-2025-3071</p>
+                <p><strong>Finding:</strong> Microsoft Edge (Chromium) &lt; 135.0.3179.54 Multiple Vulnerabilities</p>
+                <p><strong>Action:</strong> Upgrade to Microsoft Edge version 135.0.3179.54 or later.</p>
+            </div>
+            <div class="finding">
+                <p><strong>CVE:</strong> CVE-2025-3072</p>
+                <p><strong>Finding:</strong> Microsoft Edge (Chromium) &lt; 135.0.3179.54 Multiple Vulnerabilities</p>
+                <p><strong>Action:</strong> Upgrade to Microsoft Edge version 135.0.3179.54 or later.</p>
+            </div>
+            <div class="finding">
+                <p><strong>CVE:</strong> CVE-2025-3073</p>
+                <p><strong>Finding:</strong> Microsoft Edge (Chromium) &lt; 135.0.3179.54 Multiple Vulnerabilities</p>
+                <p><strong>Action:</strong> Upgrade to Microsoft Edge version 135.0.3179.54 or later.</p>
+            </div>
+            <div class="finding">
+                <p><strong>CVE:</strong> CVE-2025-3074</p>
+                <p><strong>Finding:</strong> Microsoft Edge (Chromium) &lt; 135.0.3179.54 is installed. Current version: 132.0.2957.127.</p>
+                <p><strong>Action:</strong> Upgrade to Microsoft Edge version 135.0.3179.54 or later.</p>
+            </div>
+            <div class="finding">
+                <p><strong>CVE:</strong> CVE-2025-3619</p>
+                <p><strong>Finding:</strong> Microsoft Edge (Chromium) &lt; 134.0.3124.129 / 135.0.3179.85 is installed. Current version: 132.0.2957.127.</p>
+                <p><strong>Action:</strong> Upgrade to Microsoft Edge version 135.0.3179.85 or later.</p>
+            </div>
+            <div class="finding">
+                <p><strong>CVE:</strong> CVE-2025-3620</p>
+                <p><strong>Finding:</strong> Microsoft Edge (Chromium) &lt; 134.0.3124.129 / 135.0.3179.85 is installed. Current version: 132.0.2957.127.</p>
+                <p><strong>Action:</strong> Upgrade to Microsoft Edge version 135.0.3179.85 or later.</p>
+            </div>
+        </div>
+        <div class="section">
+            <h2>General Recommendations</h2>
+            <div class="finding">
+                <p><strong>Category:</strong> backup</p>
+                <p><strong>Action:</strong> Ensure regular backups of critical data are performed and stored offline</p>
+            </div>
+            <div class="finding">
+                <p><strong>Category:</strong> system hardening</p>
+                <p><strong>Action:</strong> Implement application whitelisting to prevent unauthorized executables</p>
+            </div>
+            <div class="finding">
+                <p><strong>Category:</strong> user training</p>
+                <p><strong>Action:</strong> Educate users on recognizing phishing emails and suspicious file attachments</p>
+            </div>
+            <div class="finding">
+                <p><strong>Category:</strong> network security</p>
+                <p><strong>Action:</strong> Enable network segmentation to limit lateral movement of malware</p>
+            </div>
+            <div class="finding">
+                <p><strong>Category:</strong> system hardening</p>
+                <p><strong>Action:</strong> Ensure all Microsoft Store apps are regularly updated to their latest versions to mitigate vulnerabilities.</p>
+            </div>
+            <div class="finding">
+                <p><strong>Category:</strong> user training</p>
+                <p><strong>Action:</strong> Educate users on the importance of applying updates promptly to reduce exposure to known vulnerabilities.</p>
+            </div>
+            <div class="finding">
+                <p><strong>Category:</strong> system hardening</p>
+                <p><strong>Action:</strong> Ensure all applications are regularly updated to their latest versions via the Microsoft Store or official sources.</p>
+            </div>
+            <div class="finding">
+                <p><strong>Category:</strong> user training</p>
+                <p><strong>Action:</strong> Educate users on the importance of applying updates promptly to mitigate vulnerabilities.</p>
+            </div>
+            <div class="finding">
+                <p><strong>Category:</strong> system hardening</p>
+                <p><strong>Action:</strong> Ensure all software is regularly updated to the latest versions to mitigate vulnerabilities.</p>
+            </div>
+            <div class="finding">
+                <p><strong>Category:</strong> user training</p>
+                <p><strong>Action:</strong> Educate users on the importance of applying software updates promptly.</p>
+            </div>
+            <div class="finding">
+                <p><strong>Category:</strong> system hardening</p>
+                <p><strong>Action:</strong> Ensure all software, especially browsers, is updated to the latest secure versions.</p>
+            </div>
+            <div class="finding">
+                <p><strong>Category:</strong> system hardening</p>
+                <p><strong>Action:</strong> Ensure all software, including browsers, is kept up to date to mitigate vulnerabilities.</p>
+            </div>
+            <div class="finding">
+                <p><strong>Category:</strong> user training</p>
+                <p><strong>Action:</strong> Educate users on the importance of applying updates promptly and recognizing potential security risks.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
